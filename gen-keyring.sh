@@ -76,6 +76,9 @@ readonly version=1.0.1			# set version variable
 
 basedir=$(dirname "$0")
 
+distro_repos="Debian_11 Debian_10 Debian_9.0 Raspbian_11 Raspbian_10"
+distro_repos+=" Raspbian_9.0"
+
 
 #############
 # Functions #
@@ -134,46 +137,13 @@ trap trap_exit SIGHUP SIGINT SIGQUIT SIGTERM
 # Main #
 ########
 
-# OBS - Debian
-curl -fsSL"$verbose" \
-	https://download.opensuse.org/repositories/home:m-grant-prg/Debian_11/Release.key \
-	| gpg --dearmor \
-	| gpg --import --no-default-keyring --keyring $basedir/src/conf/etc/home_m-grant-prg.gpg
+for repo in $distro_repos; do
+	curl -fsSL"$verbose" \
+			https://download.opensuse.org/repositories/home:m-grant-prg/$repo/Release.key \
+			| gpg --dearmor \
+			| gpg --import --no-default-keyring --keyring $basedir/src/conf/etc/home_m-grant-prg.gpg
 std_cmd_err_handler $?
-
-curl -fsSL"$verbose" \
-	https://download.opensuse.org/repositories/home:m-grant-prg/Debian_10/Release.key \
-	| gpg --dearmor \
-	| gpg --import --no-default-keyring --keyring $basedir/src/conf/etc/home_m-grant-prg.gpg
-std_cmd_err_handler $?
-
-curl -fsSL"$verbose" \
-	https://download.opensuse.org/repositories/home:m-grant-prg/Debian_9.0/Release.key \
-	| gpg --dearmor \
-	| gpg --import --no-default-keyring --keyring $basedir/src/conf/etc/home_m-grant-prg.gpg
-std_cmd_err_handler $?
-
-# OBS - Raspbian
-curl -fsSL"$verbose" \
-	https://download.opensuse.org/repositories/home:m-grant-prg/Raspbian_11/Release.key \
-	| gpg --dearmor \
-	| gpg --import --no-default-keyring --keyring $basedir/src/conf/etc/home_m-grant-prg.gpg
-std_cmd_err_handler $?
-
-curl -fsSL"$verbose" \
-	https://download.opensuse.org/repositories/home:m-grant-prg/Raspbian_10/Release.key \
-	| gpg --dearmor \
-	| gpg --import --no-default-keyring --keyring $basedir/src/conf/etc/home_m-grant-prg.gpg
-std_cmd_err_handler $?
-
-curl -fsSL"$verbose" \
-	https://download.opensuse.org/repositories/home:m-grant-prg/Raspbian_9.0/Release.key \
-	| gpg --dearmor \
-	| gpg --import --no-default-keyring --keyring $basedir/src/conf/etc/home_m-grant-prg.gpg
-std_cmd_err_handler $?
-
-rm -v $basedir/src/conf/etc/*~
-std_cmd_err_handler $?
+done
 
 script_exit 0
 
