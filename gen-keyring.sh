@@ -50,10 +50,11 @@
 # time. Equally we cannot do the same sequence with tee --append as in	#
 # the current sceanrio we would get 3 copies of the same key.		#
 # We cannot use apt-key add as apt-key is deprecated.			#
-# So the preferred method is						#
+# So the preferred method is for each repository			#
 #	curl								#
-#		gpg --dearmor						#
-#			gpg --import --no-default-keyring --keyring X	#
+#		gpg --import --no-default-keyring --keyring X		#
+# then after all repos processed					#
+#	gpg --export --no-default-keyring --keyring X			#
 #									#
 #########################################################################
 
@@ -139,11 +140,18 @@ trap trap_exit SIGHUP SIGINT SIGQUIT SIGTERM
 
 for repo in $distro_repos; do
 	curl -fsSL"$verbose" \
-			https://download.opensuse.org/repositories/home:m-grant-prg/$repo/Release.key \
-			| gpg --dearmor \
-			| gpg --import --no-default-keyring --keyring $basedir/src/conf/etc/home_m-grant-prg.gpg
-std_cmd_err_handler $?
+		https://download.opensuse.org/repositories/home:m-grant-prg/$repo/Release.key \
+		| gpg --import --no-default-keyring \
+			--keyring $basedir/src/conf/etc/gpg.tmp
+	std_cmd_err_handler $?
 done
+
+gpg --export --no-default-keyring --keyring $basedir/src/conf/etc/gpg.tmp \
+	--output $basedir/src/conf/etc/home_m-grant-prg.gpg
+std_cmd_err_handler $?
+
+rm -v $basedir/src/conf/etc/*.tmp
+std_cmd_err_handler $?
 
 script_exit 0
 
