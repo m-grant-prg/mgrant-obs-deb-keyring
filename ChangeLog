@@ -1,3 +1,7 @@
+2022-01-26 v1.0.2 Mark Grant <m.grant.prg@gmail.com>
+	* Key update - extended expiry date
+	at: Add instruction to perform a re-build in each repo
+
 2022-01-25 v1.0.1 Mark Grant <m.grant.prg@gmail.com>
 	* Initial release.
 
