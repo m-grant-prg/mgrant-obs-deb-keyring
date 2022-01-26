@@ -42,9 +42,19 @@ Using the osc tool, extend the expiry date of a key on OBS.
 
 	osc signkey --extend home:m-grant-prg
 
+	This will take a few minutes to show up on OBS with the new date.
+
+On OBS, trigger a re-build in each repository, this initiates the copy of the
+updated key to the repo signing file (Release.key).
+
 Generate a new keyring.
 
 	./gen-keyring.sh
+
+Check the result.
+
+	gpg --list-keys --no-default-keyring \
+		--keyring ./src/conf/etc/home_m-grant-prg.gpg
 
 Create a release and package downstream.
 
