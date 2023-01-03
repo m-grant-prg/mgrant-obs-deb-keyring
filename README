@@ -2,7 +2,7 @@
 openSUSE Build Service deb signing keys
 =======================================
 
-Author - Copyright (C) 2022 Mark Grant
+Author - Copyright (C) 2022, 2023 Mark Grant
 
 --------
 Contents
@@ -38,20 +38,22 @@ file and is hosted in the OBS repo.
 
 c) Maintainer actions to update the key
 ---------------------------------------
-Using the osc tool, extend the expiry date of a key on OBS.
+1 ... Using the osc tool, extend the expiry date of a key on OBS.
 
 	osc signkey --extend home:m-grant-prg
 
-	This will take a few minutes to show up on OBS with the new date.
+This will take a few minutes to show up on OBS with the new date.
 
-On OBS, trigger a re-build in each repository, this initiates the copy of the
-updated key to the repo signing file (Release.key).
+2 ... On OBS, trigger a re-build in each repository, this initiates the copy of the
+updated key to the repo signing file (Release.key). This can be done via the web-UI or by:-
 
-Generate a new keyring.
+	osc rebuild home:m-grant-prg agmaint
+
+3 ... Generate a new keyring.
 
 	./gen-keyring.sh
 
-Check the result.
+4 ... Check the result.
 
 	gpg --list-keys --no-default-keyring \
 		--keyring ./src/conf/etc/home_m-grant-prg.gpg
