@@ -1,7 +1,7 @@
 #########################################################################
 #									#
 # Script ID: ./configure.ac						#
-# Author: Copyright (C) 2022  Mark Grant				#
+# Author: Copyright (C) 2022, 2023  Mark Grant				#
 #									#
 # Released under the GPLv3 only.					#
 # SPDX-License-Identifier: GPL-3.0-only					#
@@ -41,6 +41,7 @@
 # 14/01/2022	MG	1.0.1	Initial release.			#
 # 11/10/2022	MG	1.0.2	Separate AutoTools generated files from	#
 #				project root.				#
+# 03/01/2023	MG	1.0.3	Upfate Copyright for 2023.		#
 #									#
 #########################################################################
 
@@ -51,11 +52,11 @@
 #					#
 #########################################
 
-AC_COPYRIGHT([Copyright (C) 2022  Mark Grant
+AC_COPYRIGHT([Copyright (C) 2022, 2023  Mark Grant
 	      This script is free to copy or distribute under the terms set out
 	      in the package license. See COPYING for details.])
 
-AC_REVISION([$Revision: 1.0.2 $])
+AC_REVISION([$Revision: 1.0.3 $])
 
 AC_PREREQ([2.69])
 
