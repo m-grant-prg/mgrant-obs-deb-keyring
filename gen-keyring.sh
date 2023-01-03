@@ -3,7 +3,7 @@
 #########################################################################
 #									#
 # Script ID: gen-keyring.sh						#
-# Author: Copyright (C) 2022  Mark Grant				#
+# Author: Copyright (C) 2022, 2023  Mark Grant				#
 #									#
 # Released under the GPLv3 only.					#
 # SPDX-License-Identifier: GPL-3.0-only					#
@@ -65,6 +65,7 @@
 # Date		Author	Version	Description				#
 #									#
 # 14/01/2022	MG	1.0.1	Created.				#
+# 03/01/2023	MG	1.0.2	Remove no longer available Raspbian 9.0	#
 #									#
 #########################################################################
 
@@ -73,12 +74,11 @@
 # Init variables #
 ##################
 
-readonly version=1.0.1			# set version variable
+readonly version=1.0.2			# set version variable
 
 basedir=$(dirname "$0")
 
 distro_repos="Debian_11 Debian_10 Debian_9.0 Raspbian_11 Raspbian_10"
-distro_repos+=" Raspbian_9.0"
 
 
 #############
