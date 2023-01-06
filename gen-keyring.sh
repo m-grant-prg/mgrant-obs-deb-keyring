@@ -65,7 +65,8 @@
 # Date		Author	Version	Description				#
 #									#
 # 14/01/2022	MG	1.0.1	Created.				#
-# 03/01/2023	MG	1.0.2	Remove no longer available Raspbian 9.0	#
+# 06/01/2023	MG	1.0.2	Remove no longer available Raspbian 9.0	#
+#				Replace keyring only if it has changed.	#
 #									#
 #########################################################################
 
@@ -147,10 +148,23 @@ for repo in $distro_repos; do
 done
 
 gpg --export --no-default-keyring --keyring $basedir/src/conf/etc/gpg.tmp \
-	--output $basedir/src/conf/etc/home_m-grant-prg.gpg
+	--output $basedir/src/conf/etc/home_m-grant-prg.gpg.new
 std_cmd_err_handler $?
 
-rm -v $basedir/src/conf/etc/*.tmp
+if cmp -s "$basedir/src/conf/etc/home_m-grant-prg.gpg" \
+	"$basedir/src/conf/etc/home_m-grant-prg.gpg.new"; then
+	std_cmd_err_handler $?
+	rm $basedir/src/conf/etc/home_m-grant-prg.gpg.new
+	std_cmd_err_handler $?
+	printf "No changes. Old keyring kept.\n"
+else
+	rm $basedir/src/conf/etc/home_m-grant-prg.gpg
+	mv $basedir/src/conf/etc/home_m-grant-prg.gpg.new \
+		$basedir/src/conf/etc/home_m-grant-prg.gpg
+	printf "Changes made, keyring replaced.\n"
+fi
+
+rm $basedir/src/conf/etc/*.tmp
 std_cmd_err_handler $?
 
 script_exit 0
