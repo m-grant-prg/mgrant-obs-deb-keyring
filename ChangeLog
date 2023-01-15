@@ -1,3 +1,14 @@
+2023-01-15 v1.0.3 Mark Grant <m.grant.prg@gmail.com>
+	* keyring: Replace keyring only if it has changed
+	etc: Update extended expiry OBS key
+	git: Update gitignore to v1.0.10
+	keyring: Remove no longer available Raspbian 9.0
+	at: Suggest package rebuild methods
+	at: Update Copyright for 2023
+	at: Use AC_CONFIG_AUX_DIR
+	at: Upgrade bootstrap.sh to v1.5.4
+	editors: Add editorconfig v1.0.3
+
 2022-01-26 v1.0.2 Mark Grant <m.grant.prg@gmail.com>
 	* Key update - extended expiry date
 	at: Add instruction to perform a re-build in each repo
