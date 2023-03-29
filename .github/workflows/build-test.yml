@@ -1,7 +1,7 @@
 #########################################################################
 #									#
 # File ID: ./.github/workflows/build-test.yml				#
-# Author: Copyright (C) 2022  Mark Grant				#
+# Author: Copyright (C) 2022, 2023  Mark Grant				#
 #									#
 # Released under the GPLv3 only.					#
 # SPDX-License-Identifier: GPL-3.0-only					#
@@ -19,6 +19,7 @@
 # Date		Author	Version	Description				#
 #									#
 # 14/01/2022	MG	1.0.1	Initial release.                        #
+# 29/03/2023    MG      1.0.2   Run on ubuntu-latest.                   #
 #									#
 #########################################################################
 
@@ -33,7 +34,7 @@ on:
 
 jobs:
   build-test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE.
