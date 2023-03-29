@@ -67,6 +67,7 @@
 # 14/01/2022	MG	1.0.1	Created.				#
 # 06/01/2023	MG	1.0.2	Remove no longer available Raspbian 9.0	#
 #				Replace keyring only if it has changed.	#
+# 29/03/2023	MG	1.0.3	Add Debian_Testing repo.		#
 #									#
 #########################################################################
 
@@ -75,11 +76,12 @@
 # Init variables #
 ##################
 
-readonly version=1.0.2			# set version variable
+readonly version=1.0.3			# set version variable
 
 basedir=$(dirname "$0")
 
-distro_repos="Debian_11 Debian_10 Debian_9.0 Raspbian_11 Raspbian_10"
+distro_repos="Debian_Testing Debian_11 Debian_10 Debian_9.0 Raspbian_11"
+distro_repos+=" Raspbian_10"
 
 
 #############
