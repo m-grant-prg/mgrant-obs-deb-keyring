@@ -1,3 +1,19 @@
+2023-06-22 v1.0.4 Mark Grant <m.grant.prg@gmail.com>
+	* Remove gpg generated backups of .tmp files
+	Remove unassigned variable
+	Use double quotes to prevent globbing and word splitting
+	Remove unused variale version
+	at: Allow for v1.1.1~rc1 version numbering
+	lxcu: Add in-file help text
+	Add bookworm
+	actions: Run on ubuntu-latest
+	keyring: Add Debian_Testing repo
+	at: Upgrade boostrap.sh to v1.5.6
+	git: Update mailmap to v1.0.3
+	git: Update gitignore to v1.0.11
+	git: Update gitattributes to v1.0.4
+	editors: Update editorconfig to v1.0.4
+
 2023-01-15 v1.0.3 Mark Grant <m.grant.prg@gmail.com>
 	* keyring: Replace keyring only if it has changed
 	etc: Update extended expiry OBS key
