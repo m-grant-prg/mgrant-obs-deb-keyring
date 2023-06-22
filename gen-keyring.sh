@@ -164,7 +164,7 @@ else
 	printf "Changes made, keyring replaced.\n"
 fi
 
-rm "$basedir"/src/conf/etc/*.tmp
+rm "$basedir"/src/conf/etc/*.tmp*
 std_cmd_err_handler $?
 
 script_exit 0
