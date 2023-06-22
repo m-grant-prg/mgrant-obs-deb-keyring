@@ -141,8 +141,7 @@ trap trap_exit SIGHUP SIGINT SIGQUIT SIGTERM
 ########
 
 for repo in $distro_repos; do
-	curl -fsSL"$verbose" \
-		https://download.opensuse.org/repositories/home:m-grant-prg/"$repo"/Release.key \
+	curl -fsSL https://download.opensuse.org/repositories/home:m-grant-prg/"$repo"/Release.key \
 		| gpg --import --no-default-keyring \
 			--keyring "$basedir"/src/conf/etc/gpg.tmp
 	std_cmd_err_handler $?
