@@ -68,7 +68,8 @@
 # 06/01/2023	MG	1.0.2	Remove no longer available Raspbian 9.0	#
 #				Replace keyring only if it has changed.	#
 # 29/03/2023	MG	1.0.3	Add Debian_Testing repo.		#
-# 21/06/2023	MG	1.0.4	Add bookworm.				#
+# 22/06/2023	MG	1.0.4	Add bookworm.				#
+#				Fix shellcheck warnings.		#
 #									#
 #########################################################################
 
@@ -76,9 +77,6 @@
 ##################
 # Init variables #
 ##################
-
-readonly version=1.0.4			# set version variable
-
 basedir=$(dirname "$0")
 
 distro_repos="Debian_Testing Debian_12 Debian_11 Debian_10 Debian_9.0"
