@@ -2,7 +2,6 @@
 
 #########################################################################
 #									#
-# Script ID: gen-keyring.sh						#
 # Author: Copyright (C) 2022, 2023  Mark Grant				#
 #									#
 # Released under the GPLv3 only.					#
@@ -55,21 +54,6 @@
 #		gpg --import --no-default-keyring --keyring X		#
 # then after all repos processed					#
 #	gpg --export --no-default-keyring --keyring X			#
-#									#
-#########################################################################
-
-#########################################################################
-#									#
-# Changelog								#
-#									#
-# Date		Author	Version	Description				#
-#									#
-# 14/01/2022	MG	1.0.1	Created.				#
-# 06/01/2023	MG	1.0.2	Remove no longer available Raspbian 9.0	#
-#				Replace keyring only if it has changed.	#
-# 29/03/2023	MG	1.0.3	Add Debian_Testing repo.		#
-# 22/06/2023	MG	1.0.4	Add bookworm.				#
-#				Fix shellcheck warnings.		#
 #									#
 #########################################################################
 

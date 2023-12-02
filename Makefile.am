@@ -1,6 +1,5 @@
 #########################################################################
 #									#
-# Script ID: ./Makefile.am						#
 # Author: Copyright (C) 2022, 2023  Mark Grant				#
 #									#
 # Released under the GPLv3 only.					#
@@ -9,18 +8,6 @@
 # Purpose:								#
 # AutoMake script file to generate mgrant OBS deb keyring project from	#
 # source.								#
-#									#
-#########################################################################
-
-#########################################################################
-#									#
-# Changelog								#
-#									#
-# Date		Author	Version	Description				#
-#									#
-# 14/01/2022	MG	1.0.1	Initial release.			#
-# 22/06/2023	MG	1.0.2	Enable use of v1.1.1~rc1 type vesrion	#
-#				numbers for source tarballs.		#
 #									#
 #########################################################################
 
