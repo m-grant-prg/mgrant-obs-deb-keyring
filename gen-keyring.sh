@@ -2,7 +2,7 @@
 
 #########################################################################
 #									#
-# Author: Copyright (C) 2022, 2023  Mark Grant				#
+# Author: Copyright (C) 2022-2024  Mark Grant				#
 #									#
 # Released under the GPLv3 only.					#
 # SPDX-License-Identifier: GPL-3.0-only					#
@@ -64,7 +64,7 @@
 basedir=$(dirname "$0")
 
 distro_repos="Debian_Testing Debian_12 Debian_11 Debian_10 Debian_9.0"
-distro_repos+=" Raspbian_11 Raspbian_10"
+distro_repos+=" Raspbian_12 Raspbian_11 Raspbian_10"
 
 
 #############
