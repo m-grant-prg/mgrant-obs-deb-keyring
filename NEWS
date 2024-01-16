@@ -1,3 +1,7 @@
+Release 1.0.5 2024-01-16
+Add Rasbian_12.
+Technical changes can be seen in the ChangeLog.
+
 Release 1.0.4 2023-06-22
 Add bookworm.
 Add testing.

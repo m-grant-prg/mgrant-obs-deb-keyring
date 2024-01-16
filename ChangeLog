@@ -1,3 +1,21 @@
+2024-01-16 v1.0.5 Mark Grant <m.grant.prg@gmail.com>
+	* build(deps): bump actions/checkout from 2 to 4
+dependabot[bot] (1):
+
+	at: Update Copyright for 2024
+	etc: Update keyring for extended key and Raspbian_12
+	gen-keyring.sh: Add key retrieval from Raspbian 12 repo
+	all: Remove in-file ChangeLogs
+	git: Standardise on non-roor gitignore file formats
+	at: Upgrade bootstrap.sh to v1.6.0
+	at: Upgrade bootstrap.sh to v1.5.7
+	Merge pull request #1 from m-grant-prg/dependabot/github_actions/actions/checkout-4
+	github: Add dependabot version update config
+	lxcu: Remove txt2man, rely on txt2manwrap dependencies
+	actions: Remove txt2man, rely on txt2manwrap dependencies
+	actions: Run on focal
+Mark Grant (12):
+
 2023-06-22 v1.0.4 Mark Grant <m.grant.prg@gmail.com>
 	* Remove gpg generated backups of .tmp files
 	Remove unassigned variable
