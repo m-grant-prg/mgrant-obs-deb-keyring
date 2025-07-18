@@ -1,3 +1,15 @@
+2025-07-18 v1.0.6 Mark Grant <m.grant.prg@gmail.com>
+	* gen-keyring.sh: Add {De|Rasp}bian_13
+	actions Run on Noble
+	at: Update Copyright for 2025
+	actions: Fix trivial whitespace formatting errors
+	git: Correct reasoning in gitignore, empty vs untracked
+	git: Update mailmap to v1.0.4
+	git: Update gitignore to v1.0.12
+	git: Update gitattributes to v1.0.5
+	editors: Update editorconfig to v1.0.6
+Mark Grant (9)
+
 2024-01-16 v1.0.5 Mark Grant <m.grant.prg@gmail.com>
 	* build(deps): bump actions/checkout from 2 to 4
 dependabot[bot] (1):
