@@ -47,7 +47,7 @@
 #			tee 						#
 #				as that would overwrite the file each	#
 # time. Equally we cannot do the same sequence with tee --append as in	#
-# the current sceanrio we would get 3 copies of the same key.		#
+# the current scenario we would get 3 copies of the same key.		#
 # We cannot use apt-key add as apt-key is deprecated.			#
 # So the preferred method is for each repository			#
 #	curl								#
