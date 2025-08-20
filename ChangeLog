@@ -1,3 +1,13 @@
+2025-08-20 v1.0.7 Mark Grant <m.grant.prg@gmail.com>
+	* build(deps): bump actions/checkout from 4 to 5
+dependabot[bot] (1):
+
+	keyring: Update key with extended expiry date
+	Merge pull request #2 from m-grant-prg/dependabot/github_actions/actions/checkout-5
+	gen-keyring.sh: Remove Raspbian_13 Trixie
+	gen-keyring.sh: Fix spelling mistake
+Mark Grant (4):
+
 2025-07-18 v1.0.6 Mark Grant <m.grant.prg@gmail.com>
 	* gen-keyring.sh: Add {De|Rasp}bian_13
 	actions Run on Noble
