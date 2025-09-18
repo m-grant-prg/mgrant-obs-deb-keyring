@@ -41,7 +41,7 @@ AC_COPYRIGHT([Copyright (C) 2022-2025  Mark Grant
 	      This script is free to copy or distribute under the terms set out
 	      in the package license. See COPYING for details.])
 
-AC_REVISION([$Revision: 1.0.6 $])
+AC_REVISION([$Revision: 1.0.7 $])
 
 AC_PREREQ([2.69])
 
@@ -247,7 +247,7 @@ AC_MSG_NOTICE(processing output files)
 
 # Project Makefiles to create.
 AC_CONFIG_FILES([Makefile
-		src/conf/etc/Makefile])
+		src/conf/Makefile])
 
 AC_OUTPUT
 

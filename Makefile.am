@@ -1,6 +1,6 @@
 #########################################################################
 #									#
-# Author: Copyright (C) 2022, 2023  Mark Grant				#
+# Author: Copyright (C) 2022, 2023, 2025  Mark Grant			#
 #									#
 # Released under the GPLv3 only.					#
 # SPDX-License-Identifier: GPL-3.0-only					#
@@ -18,7 +18,7 @@ ACLOCAL_AMFLAGS = -I m4
 AM_DISTCHECK_CONFIGURE_FLAGS =
 
 
-SUBDIRS = src/conf/etc
+SUBDIRS = src/conf
 
 
 doc_DATA = AUTHORS ChangeLog COPYING NEWS README

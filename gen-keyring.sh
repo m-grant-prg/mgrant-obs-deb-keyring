@@ -127,28 +127,28 @@ trap trap_exit SIGHUP SIGINT SIGQUIT SIGTERM
 for repo in $distro_repos; do
 	curl -fsSL https://download.opensuse.org/repositories/home:m-grant-prg/"$repo"/Release.key \
 		| gpg --import --no-default-keyring \
-			--keyring "$basedir"/src/conf/etc/gpg.tmp
+			--keyring "$basedir"/src/conf/gpg.tmp
 	std_cmd_err_handler $?
 done
 
-gpg --export --no-default-keyring --keyring "$basedir"/src/conf/etc/gpg.tmp \
-	--output "$basedir"/src/conf/etc/home_m-grant-prg.gpg.new
+gpg --export --no-default-keyring --keyring "$basedir"/src/conf/gpg.tmp \
+	--output "$basedir"/src/conf/home_m-grant-prg.gpg.new
 std_cmd_err_handler $?
 
-if cmp -s "$basedir/src/conf/etc/home_m-grant-prg.gpg" \
-	"$basedir/src/conf/etc/home_m-grant-prg.gpg.new"; then
+if cmp -s "$basedir/src/conf/home_m-grant-prg.gpg" \
+	"$basedir/src/conf/home_m-grant-prg.gpg.new"; then
 	std_cmd_err_handler $?
-	rm "$basedir"/src/conf/etc/home_m-grant-prg.gpg.new
+	rm "$basedir"/src/conf/home_m-grant-prg.gpg.new
 	std_cmd_err_handler $?
 	printf "No changes. Old keyring kept.\n"
 else
-	rm "$basedir"/src/conf/etc/home_m-grant-prg.gpg
-	mv "$basedir"/src/conf/etc/home_m-grant-prg.gpg.new \
-		"$basedir"/src/conf/etc/home_m-grant-prg.gpg
+	rm "$basedir"/src/conf/home_m-grant-prg.gpg
+	mv "$basedir"/src/conf/home_m-grant-prg.gpg.new \
+		"$basedir"/src/conf/home_m-grant-prg.gpg
 	printf "Changes made, keyring replaced.\n"
 fi
 
-rm "$basedir"/src/conf/etc/*.tmp*
+rm "$basedir"/src/conf/*.tmp*
 std_cmd_err_handler $?
 
 script_exit 0
