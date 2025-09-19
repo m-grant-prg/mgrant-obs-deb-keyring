@@ -62,6 +62,8 @@
 # Init variables #
 ##################
 basedir=$(dirname "$0")
+tmp_gpg_import=/tmp/$$.$(basename "$0").import	# Temporary gpg import file
+tmp_gpg_export=/tmp/$$.$(basename "$0").export	# Temporary gpg export file
 
 distro_repos="Debian_Testing Debian_13 Debian_12 Debian_11 Debian_10 Debian_9.0"
 distro_repos+=" Raspbian_12 Raspbian_11 Raspbian_10"
@@ -126,29 +128,33 @@ trap trap_exit SIGHUP SIGINT SIGQUIT SIGTERM
 
 for repo in $distro_repos; do
 	curl -fsSL https://download.opensuse.org/repositories/home:m-grant-prg/"$repo"/Release.key \
-		| gpg --import --no-default-keyring \
-			--keyring "$basedir"/src/conf/gpg.tmp
+		| gpg --import --no-default-keyring --keyring "$tmp_gpg_import"
 	std_cmd_err_handler $?
 done
 
-gpg --export --no-default-keyring --keyring "$basedir"/src/conf/gpg.tmp \
-	--output "$basedir"/src/conf/home_m-grant-prg.gpg.new
+gpg --export --no-default-keyring --keyring "$tmp_gpg_import" \
+	--output "$tmp_gpg_export"
 std_cmd_err_handler $?
 
-if cmp -s "$basedir/src/conf/home_m-grant-prg.gpg" \
-	"$basedir/src/conf/home_m-grant-prg.gpg.new"; then
+if cmp -s "$basedir/src/conf/home_m-grant-prg.gpg" "$tmp_gpg_export"; then
 	std_cmd_err_handler $?
-	rm "$basedir"/src/conf/home_m-grant-prg.gpg.new
-	std_cmd_err_handler $?
-	printf "No changes. Old keyring kept.\n"
+	printf "No changes. Old conf keyring kept.\n"
 else
-	rm "$basedir"/src/conf/home_m-grant-prg.gpg
-	mv "$basedir"/src/conf/home_m-grant-prg.gpg.new \
-		"$basedir"/src/conf/home_m-grant-prg.gpg
-	printf "Changes made, keyring replaced.\n"
+	rm -f "$basedir"/src/conf/home_m-grant-prg.gpg
+	cp "$tmp_gpg_export" "$basedir"/src/conf/home_m-grant-prg.gpg
+	printf "Changes made, conf keyring replaced.\n"
 fi
 
-rm "$basedir"/src/conf/*.tmp*
+if cmp -s "$basedir/src/data/home_m-grant-prg.pgp" "$tmp_gpg_export"; then
+	std_cmd_err_handler $?
+	printf "No changes. Old data keyring kept.\n"
+else
+	rm -f "$basedir"/src/data/home_m-grant-prg.pgp
+	cp "$tmp_gpg_export" "$basedir"/src/data/home_m-grant-prg.pgp
+	printf "Changes made, data keyring replaced.\n"
+fi
+
+rm "$tmp_gpg_import" "$tmp_gpg_export"
 std_cmd_err_handler $?
 
 script_exit 0
