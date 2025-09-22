@@ -78,6 +78,8 @@ distro_repos+=" Raspbian_12 Raspbian_11 Raspbian_10"
 #		$2 Where:-	stdout == 0
 #				stderr == 1
 # No return value.
+# shellcheck disable=SC2317  # Do not warn about unreachable commands as it is
+# only called from the trap function which is legitimate.
 output()
 {
 	if (( !$2 )); then
@@ -108,6 +110,8 @@ std_cmd_err_handler()
 # Standard trap exit function.
 # No parameters.
 # No return value.
+# shellcheck disable=SC2317  # Do not warn about unreachable commands in trap
+# functions, they are legitimate.
 trap_exit()
 {
 	local -i exit_code=$?
