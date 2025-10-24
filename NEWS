@@ -1,3 +1,7 @@
+Release 1.0.8 2025-10-24
+Add keyring to /usr/share/keyrings as well
+Technical changes can be seen in the ChangeLog.
+
 Release 1.0.7 2025-08-20
 Update keyring with extended expiry date key
 Technical changes can be seen in the ChangeLog.
