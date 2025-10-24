@@ -66,7 +66,7 @@ tmp_gpg_import=/tmp/$$.$(basename "$0").import	# Temporary gpg import file
 tmp_gpg_export=/tmp/$$.$(basename "$0").export	# Temporary gpg export file
 
 distro_repos="Debian_Testing Debian_13 Debian_12 Debian_11 Debian_10 Debian_9.0"
-distro_repos+=" Raspbian_12 Raspbian_11 Raspbian_10"
+distro_repos+=" Raspbian_13 Raspbian_12 Raspbian_11 Raspbian_10"
 
 
 #############
