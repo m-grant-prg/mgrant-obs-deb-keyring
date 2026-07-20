@@ -2,7 +2,7 @@
 openSUSE Build Service deb signing keys
 =======================================
 
-Author - Copyright (C) 2022, 2023 Mark Grant
+Author - Copyright (C) 2022, 2023, 2026 Mark Grant
 
 --------
 Contents
@@ -44,8 +44,9 @@ c) Maintainer actions to update the key
 
 This will take a few minutes to show up on OBS with the new date.
 
-2 ... On OBS, trigger a re-build in each repository, this initiates the copy of the
-updated key to the repo signing file (Release.key). This can be done via the web-UI or by:-
+2 ... On OBS, trigger a re-build in each repository, this initiates the copy of
+the updated key to the repo signing file (Release.key). This can be done via the
+web-UI or by:-
 
 	osc rebuild home:m-grant-prg agmaint
 
