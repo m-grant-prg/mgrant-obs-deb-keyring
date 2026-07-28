@@ -2,7 +2,7 @@
 
 #########################################################################
 #									#
-# Author: Copyright (C) 2022-2025  Mark Grant				#
+# Author: Copyright (C) 2022-2026  Mark Grant				#
 #									#
 # Released under the GPLv3 only.					#
 # SPDX-License-Identifier: GPL-3.0-only					#
@@ -78,8 +78,6 @@ distro_repos+=" Raspbian_13 Raspbian_12 Raspbian_11 Raspbian_10"
 #		$2 Where:-	stdout == 0
 #				stderr == 1
 # No return value.
-# shellcheck disable=SC2317  # Do not warn about unreachable commands as it is
-# only called from the trap function which is legitimate.
 output()
 {
 	if (( !$2 )); then
@@ -142,20 +140,20 @@ std_cmd_err_handler $?
 
 if cmp -s "$basedir/src/conf/home_m-grant-prg.gpg" "$tmp_gpg_export"; then
 	std_cmd_err_handler $?
-	printf "No changes. Old conf keyring kept.\n"
+	output "No changes. Old conf keyring kept." "0"
 else
 	rm -f "$basedir"/src/conf/home_m-grant-prg.gpg
 	cp "$tmp_gpg_export" "$basedir"/src/conf/home_m-grant-prg.gpg
-	printf "Changes made, conf keyring replaced.\n"
+	output "Changes made, conf keyring replaced." "0"
 fi
 
 if cmp -s "$basedir/src/data/home_m-grant-prg.pgp" "$tmp_gpg_export"; then
 	std_cmd_err_handler $?
-	printf "No changes. Old data keyring kept.\n"
+	output "No changes. Old data keyring kept." "0"
 else
 	rm -f "$basedir"/src/data/home_m-grant-prg.pgp
 	cp "$tmp_gpg_export" "$basedir"/src/data/home_m-grant-prg.pgp
-	printf "Changes made, data keyring replaced.\n"
+	output "Changes made, data keyring replaced." "0"
 fi
 
 rm "$tmp_gpg_import" "$tmp_gpg_export"
