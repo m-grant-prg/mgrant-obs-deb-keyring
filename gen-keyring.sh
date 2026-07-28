@@ -143,7 +143,9 @@ if cmp -s "$basedir/src/conf/home_m-grant-prg.gpg" "$tmp_gpg_export"; then
 	output "No changes. Old conf keyring kept." "0"
 else
 	rm -f "$basedir"/src/conf/home_m-grant-prg.gpg
+	std_cmd_err_handler $?
 	cp "$tmp_gpg_export" "$basedir"/src/conf/home_m-grant-prg.gpg
+	std_cmd_err_handler $?
 	output "Changes made, conf keyring replaced." "0"
 fi
 
@@ -152,7 +154,9 @@ if cmp -s "$basedir/src/data/home_m-grant-prg.pgp" "$tmp_gpg_export"; then
 	output "No changes. Old data keyring kept." "0"
 else
 	rm -f "$basedir"/src/data/home_m-grant-prg.pgp
+	std_cmd_err_handler $?
 	cp "$tmp_gpg_export" "$basedir"/src/data/home_m-grant-prg.pgp
+	std_cmd_err_handler $?
 	output "Changes made, data keyring replaced." "0"
 fi
 
