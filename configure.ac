@@ -246,7 +246,7 @@ AC_MSG_NOTICE(processing additional checks and variables)
 #	pkglibexecdir		Package-specific Executables run by other programs
 #					${libexecdir}/${PACKAGE}
 #
-AC_SUBST([edit], ["sed \
+AC_SUBST([edit], ["$SED \
 		-e 's|@pkgversion[@]|\$(pkgversion)|g' \
 		-e 's|@prefix[@]|\$(prefix)|g' \
 		-e 's|@exec_prefix[@]|\$(exec_prefix)|g' \
