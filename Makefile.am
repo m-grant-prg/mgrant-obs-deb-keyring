@@ -20,6 +20,8 @@ AM_DISTCHECK_CONFIGURE_FLAGS =
 
 SUBDIRS = src/conf
 SUBDIRS += src/data
+SUBDIRS += src/tests/shellcheck
+SUBDIRS += src/run-tests
 
 
 doc_DATA = AUTHORS ChangeLog COPYING NEWS README

@@ -41,7 +41,7 @@ AC_COPYRIGHT([Copyright (C) 2022-2026  Mark Grant
 	      This script is free to copy or distribute under the terms set out
 	      in the package license. See COPYING for details.])
 
-AC_REVISION([$Revision: 1.0.8 $])
+AC_REVISION([$Revision: 1.0.9 $])
 
 AC_PREREQ([2.69])
 
@@ -247,6 +247,9 @@ AC_MSG_NOTICE(processing additional checks and variables)
 #					${libexecdir}/${PACKAGE}
 #
 AC_SUBST([edit], ["$SED \
+		-e 's|@abstopsrcdir[@]|\$(abs_top_srcdir)|g' \
+		-e 's|@abstopbuilddir[@]|\$(abs_top_builddir)|g' \
+		-e 's|@bashlocation[@]|\$(BASH)|g' \
 		-e 's|@pkgversion[@]|\$(pkgversion)|g' \
 		-e 's|@prefix[@]|\$(prefix)|g' \
 		-e 's|@exec_prefix[@]|\$(exec_prefix)|g' \
@@ -295,7 +298,9 @@ AC_MSG_NOTICE(processing output files)
 # Project Makefiles to create.
 AC_CONFIG_FILES([Makefile
 		src/conf/Makefile
-		src/data/Makefile])
+		src/data/Makefile
+		src/tests/shellcheck/Makefile
+		src/run-tests/Makefile])
 
 AC_OUTPUT
 
