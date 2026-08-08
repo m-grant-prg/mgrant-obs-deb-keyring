@@ -145,7 +145,7 @@ AC_PROG_INSTALL
 
 AC_MSG_NOTICE(checking for particular programs required by this build)
 AC_CHECK_PROG([SHELLCHECK], [shellcheck], [yes], [no])
-if test "x$TAR" = "xno" ; then
+if test "x$SHELLCHECK" = "xno" ; then
 	AC_MSG_ERROR([shellcheck not found])
 fi
 
